@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdencompraTable extends Migration
+class CreateProovedoresTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'ordenCompra';
+    public $set_schema_table = 'proovedores';
 
     /**
      * Run the migrations.
-     * @table ordenCompra
+     * @table proovedores
      *
      * @return void
      */
@@ -24,9 +24,10 @@ class CreateOrdencompraTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->date('fecha')->nullable();
+            $table->string('codigo', 45)->nullable();
+            $table->string('nombre', 45)->nullable();
             $table->string('usuario', 45)->nullable();
-            $table->tinyInteger('estado')->nullable()->default('1');
+            $table->tinyInteger('estado')->nullable();
             $table->nullableTimestamps();
         });
     }
